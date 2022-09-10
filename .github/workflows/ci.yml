@@ -32,7 +32,7 @@ jobs:
      
     - name: update helm chart
       run: |
-          git clone "{{ secrets.OWN_TOKEN }}"@github.com:mayur21486/ms-hello-app.git
+          git clone git@github.com:mayur21486/argocd_deploy.git
           ls -al 
           version=$(cat dev/deployment.yml | grep image | awk -F: '{print $3}')
           sed -i "s/$version/${{ github.sha }}/" dev/deployment.yml
