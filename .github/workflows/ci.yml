@@ -11,14 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Git Commit Data
-      uses: rlespinasse/git-commit-data-action@1.3.0
-    - name: Set outputs
-      id: vars
-      run: echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
-    - name: Check outputs
-      run: echo ${{ steps.vars.outputs.sha_short }}
-        
+       
     - name: Docker Login
       uses: docker/login-action@v2.0.0
       with:
@@ -29,5 +22,17 @@ jobs:
       uses: docker/build-push-action@v3.1.1
       with:
         push: true
-        tags: "mayur21486/helloapp:${{ steps.vars.outputs.sha_short }}"
+        tags: "mayur21486/helloapp:${{ github.sha }}"
+        
+    - name: checkout
+      uses: actions/checkout@v2.4.2
+      repository: mayur21486/argocd_deploy.git
+      
+    - name: update helm chart
+      run: |
+          version=$(cat deployment.yaml | grep image | awk -F: '{print $3}')
+          sed -i "s/$version/${{ github.sha }}/" argocd_deploy/dev/deployment.yml
+          git add argocd_deploy/dev/deployment.yml
+          git commit -m "update image tag ${{ github.sha }}"
+          
         
