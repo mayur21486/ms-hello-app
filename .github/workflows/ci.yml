@@ -43,16 +43,17 @@ jobs:
           git add dev/deployment.yml
           git config --global user.email "mayur21486@gmail.com"
           git config --global user.name "mayur21486"
-          git commit -m "update image tag ${{ github.sha }}"
+      #    git commit -m "update image tag ${{ github.sha }}"
      #     git push origin --all
       
-    - uses: x-actions/git-push@v1.0
+    - uses: github-actions-x/commit@v2.9
       with:
-          GITHUB_EMAIL: mayur21486@gmail.com
-          GITHUB_USERNAME: mayur21486
-          PUBLISH_REPO: https://" ${{ secrets.OWN_TOKEN }}"github.com/mayur21486/argocd_deploy.git
-          PUBLISH_BRANCH: master
-          PUBLISH_DIR: /
+          github-token: "${{ secrets.OWN_TOKEN }}"
+          commit-message: "update image tag ${{ github.sha }}"
+          files: dev/deployment.yml
+          email: mayur21486@gmail.com
+          name: mayur21486
+          push-branch: master
           
          
         
