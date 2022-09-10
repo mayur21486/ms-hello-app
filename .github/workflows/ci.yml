@@ -32,7 +32,7 @@ jobs:
     
     - uses: sudosubin/git-clone-action@v1.0.1
       with: 
-         repository: mayur21486/argocd_deploy.git
+         repository: mayur21486/argocd_deploy
          ref: master
      
     - name: update helm chart
