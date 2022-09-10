@@ -46,14 +46,15 @@ jobs:
       #    git commit -m "update image tag ${{ github.sha }}"
       #    git push origin --all
       
-    - uses: actions-x/commit@v6
+    - uses: GuillaumeFalourd/git-commit-push@v1.3
       with:
           email: mayur21486@gmail.com
           name: mayur21486
-          message: "update image tag ${{ github.sha }}"
+          commit_message: "update image tag ${{ github.sha }}"
           files: dev/deployment.yml
-          token: "{{ secrets.OWN_TOKEN }}"
-          repository: mayur21486/argocd_deploy
+          access_token: "{{ secrets.OWN_TOKEN }}"
+          remote_repository: mayur21486/argocd_deploy
+          target_branch: master
           
          
         
