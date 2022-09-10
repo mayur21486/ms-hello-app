@@ -13,4 +13,16 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+      run: docker build . --file Dockerfile --tag helloapp:${{ steps.commit.outputs.short }}
+    
+    - name: Docker Login
+      uses: docker/login-action@v2.0.0
+      with:
+         username: ${{ secrets.DOCKER_HUB_USER }}
+         password: ${{ secrets.DOCKER_HUB_TOKEN }}
+         
+    - name: Build push Docker images
+      uses: docker/build-push-action@v3.1.1
+      with:
+        push: true
+        tags: ${{ steps.commit.outputs.short }}
