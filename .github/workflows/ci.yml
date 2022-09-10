@@ -26,9 +26,9 @@ jobs:
         
     - uses: actions/checkout@v3
       with:
-         repository: 'mayur21486/argocd_deploy.git'
+         repository: 'mayur21486/argocd_deploy'
          ref: 'master'
-         token: "{{ secrets.OWN_TOKEN }}"
+    #     token: "{{ secrets.OWN_TOKEN }}"
      
     - name: update helm chart
       run: |
