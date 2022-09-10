@@ -28,6 +28,7 @@ jobs:
       uses: actions/checkout@v2.4.2
       with:
          repository: mayur21486/argocd_deploy.git
+         ref: master
       
     - name: update helm chart
       run: |
