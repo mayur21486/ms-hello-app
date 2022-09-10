@@ -52,6 +52,7 @@ jobs:
           GITHUB_USERNAME: mayur21486
           PUBLISH_REPO: https://" ${{ secrets.OWN_TOKEN }}"github.com/mayur21486/argocd_deploy.git
           PUBLISH_BRANCH: master
+          PUBLISH_DIR: /
           
          
         
