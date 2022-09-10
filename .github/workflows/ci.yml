@@ -52,7 +52,7 @@ jobs:
           name: mayur21486
           commit_message: "update image tag ${{ github.sha }}"
           files: dev/deployment.yml
-          access_token: "${{ secrets.OWN_TOKEN }}"
+          access_token: ${{ secrets.OWN_TOKEN }}
           remote_repository: https://github.com/mayur21486/argocd_deploy.git
           target_branch: master
           
