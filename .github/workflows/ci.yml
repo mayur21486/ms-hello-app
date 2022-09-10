@@ -24,16 +24,16 @@ jobs:
         push: true
         tags: "mayur21486/helloapp:${{ github.sha }}"
         
-    - uses: actions/checkout@v3
-      with:
+    #- uses: actions/checkout@v3
+     # with:
+      #   repository: mayur21486/argocd_deploy
+       #  ref: master
+        # token: "{{ secrets.OWN_TOKEN }}"
+    
+    - uses: sudosubin/git-clone-action@v1.0.1
+      with: 
          repository: mayur21486/argocd_deploy
          ref: master
-         token: "{{ secrets.OWN_TOKEN }}"
-    
-   # - uses: sudosubin/git-clone-action@v1.0.1
-    #  with: 
-     #    repository: mayur21486/argocd_deploy
-      #   ref: master
      
     - name: update helm chart
       run: |
