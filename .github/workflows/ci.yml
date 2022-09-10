@@ -52,7 +52,7 @@ jobs:
           name: mayur21486
           message: "update image tag ${{ github.sha }}"
           files: dev/deployment.yml
-          token: ${{ github.token }}
+          token: "{{ secrets.OWN_TOKEN }}"
           repository: mayur21486/argocd_deploy
           
          
