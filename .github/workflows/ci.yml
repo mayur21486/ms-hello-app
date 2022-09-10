@@ -29,10 +29,14 @@ jobs:
          repository: 'mayur21486/argocd_deploy'
          ref: 'master'
     #     token: "{{ secrets.OWN_TOKEN }}"
+    
+    - uses: sudosubin/git-clone-action@v1.0.1
+      with: 
+         repository: mayur21486/argocd_deploy.git
+         ref: master
      
     - name: update helm chart
       run: |
-          git clone git@github.com:mayur21486/argocd_deploy.git
           ls -al 
           version=$(cat dev/deployment.yml | grep image | awk -F: '{print $3}')
           sed -i "s/$version/${{ github.sha }}/" dev/deployment.yml
