@@ -22,4 +22,5 @@ jobs:
       uses: docker/build-push-action@v3.1.1
       with:
         push: true
-        tags: ${{ steps.commit.outputs.short }}
+        tags: latest
+        label: mayur21486/helloapp
