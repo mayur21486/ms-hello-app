@@ -5,7 +5,13 @@ on:
     branches: [ "main" ]
 
 jobs:
-
+  Pre-Build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: test run
+      run: |
+         echo "Prebuild stage Mayur"
+        
   build:
 
     runs-on: ubuntu-latest
