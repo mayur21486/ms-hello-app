@@ -60,7 +60,7 @@ jobs:
           files: dev/deployment.yml
           email: mayur21486@gmail.com
           name: mayur21486
-          push-branch: master
+          push-branch: dev
           
          
         
