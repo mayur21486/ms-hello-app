@@ -10,11 +10,12 @@ jobs:
     steps:
     - name: test run
       run: |
-         echo "Prebuild stage Mayur"
+         echo00 "Prebuild stage Mayur"
         
   build:
 
     runs-on: ubuntu-latest
+#    if: ${{ always() }}
     needs: Pre-Build
     steps:
        
